@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs
 // require turbolinks - removed because causing error with Google Map APIs being called more than once
-//= require bootstrap-sprockets
 //= require_tree .
