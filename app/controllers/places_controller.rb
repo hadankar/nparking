@@ -1,4 +1,7 @@
 class PlacesController < ApplicationController
+  #uncomment below if this controller can be used only by logged in users
+  #before_action :authenticate_user!
+
   def new
     @place = Place.new
   end
@@ -11,6 +14,7 @@ class PlacesController < ApplicationController
       redirect_to places_path
     else
       render 'new'
+
     end
   end
   def show
