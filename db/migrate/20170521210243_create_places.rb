@@ -3,7 +3,6 @@ class CreatePlaces < ActiveRecord::Migration
     create_table :places do |t|
       t.string :title
       t.string :address
-      t.string :alias
       t.float :latitude
       t.float :longitude
 

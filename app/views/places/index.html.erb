@@ -35,33 +35,36 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Zoznam parkovacích miest</h1>
-        <p class="lead">V tabulke nizsie najdete zoznam zaregistrovanych parkovacich miest.</p>
+        <h1>Moje parkovacie miesta</h1>
+        <p class="lead">Ak miesto na nejaký čas nepotrebujete, poskytnite ho napr. Vašim susedom pre návštevy.</p>
         <%= link_to 'Pridat parkovacie miesto', new_place_path , class: 'btn btn-primary' %>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-12">
         <table class="table table-hover table-condensed">
           <thead>
             <tr>
-              <th>Title</th>
-              <th>Alias</th>
-              <th>Address</th>
-              <th>Created At</th>
-            </tr>
+              <th>Popis</th>
+              <th>Adresa</th>
+              <th>Pridané</th>
+              <th>Majiteľ</th>
+              <th>Detail</th>
+              <th>Vymazať</th>
+              </tr>
           </thead>
           <tbody>
             <% @places.each do |place| %>
             <tr>
               <td><%= place.title %></td>
-              <td><%= place.alias %></td>
               <td><%= place.address %></td>
               <td><%= place.created_at %></td>
+              <td><%= place.user.email %></td>
+              <td>
+                  <%= link_to place_path(place), class: "btn btn-info" do %>
+                  <i class="glyphicon glyphicon-search"></i><% end %>
+              </td>
               <td><%= link_to place_path(place), method: :delete,
                       data: { confirm: 'Si si isty?' }, class: 'btn btn-danger' do %>
                       <i class="glyphicon glyphicon-trash"></i><% end %>
-              </td>
-              <td>
-                  <%= link_to 'Show', place_path(place), class: 'btn btn-info' %>
               </td>
             </tr>
             <% end %>

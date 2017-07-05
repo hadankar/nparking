@@ -43,7 +43,7 @@
           var latlng = new google.maps.LatLng(-34.397, 150.644);
           var mapOptions =
           {
-            zoom: 20,
+            zoom: 18,
             center: latlng
           }
           map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -75,28 +75,23 @@
       </div>
       <form class="form-horizontal">
         <div class="form-group">
-          <label class="col-sm-2 control-label">Title</label>
+          <label class="col-sm-2 control-label">Popis</label>
           <div class="col-sm-10">
             <p class="form-control-static"><%= @place.title %></p>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-2 control-label">Alias</label>
-          <div class="col-sm-10">
-            <p class="form-control-static"><%= @place.alias %></p>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-2 control-label">Address</label>
+          <label class="col-sm-2 control-label">Adresa</label>
           <div class="col-sm-10">
             <p class="form-control-static"><%= @place.address %></p>
           </div>
         </div>
       </form>
       <div>
-        <h3>My Google Maps Demo</h3>
-        <div id="map"></div>
+        <div id="map">
+        </div>
       </div>
+      <br />
       <%= link_to 'Naspäť', places_path , class: 'btn btn-primary' %>
     </div><!-- /.container -->
 
