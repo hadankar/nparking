@@ -12,11 +12,9 @@ class PlacesController < ApplicationController
     @place = Place.new(place_params)
     @place.user = current_user
     if @place.save
-      flash[:success] = "Parkovacie miesto úspešne uložené!"
       redirect_to places_path
     else
       render 'new'
-
     end
   end
   def show
