@@ -1,0 +1,32 @@
+<%= form_for @place do |f| %>
+  <% if @place.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@place.errors.count, "error") %> prohibited
+        this place from being saved:
+      </h2>
+      <ul>
+        <% @place.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="form-group">
+      <%= f.label :'Popis miesta' %>
+      <%= f.text_field :title, class: "form-control", placeholder: "Popis miesta" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Adresa %>
+      <%= f.text_field :address, class: "form-control", placeholder: "Adresa" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :'Voľné od' %>
+      <%= f.datetime_field :availableFrom, class: "form-control", placeholder: "Voľné od" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :'Voľné do' %>
+      <%= f.datetime_field :availableTo, class: "form-control", placeholder: "Voľné do" %>
+    </div>
+    <%= f.submit class:'btn btn-default' %>
+<% end %>

@@ -38,30 +38,7 @@
         <h1>Zoznam parkovacích miest</h1>
         <p class="lead">V tabulke nizsie najdete zoznam zaregistrovanych parkovacich miest.</p>
       </div>
-        <%= form_for @place do |f| %>
-          <% if @place.errors.any? %>
-            <div id="error_explanation">
-              <h2>
-                <%= pluralize(@place.errors.count, "error") %> prohibited
-                this place from being saved:
-              </h2>
-              <ul>
-                <% @place.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-            <div class="form-group">
-              <%= f.label :title %>
-              <%= f.text_field :title, class: "form-control", placeholder: "Popis" %>
-            </div>
-            <div class="form-group">
-              <%= f.label :address %>
-              <%= f.text_field :address, class: "form-control", placeholder: "Adresa" %>
-            </div>
-            <%= f.submit class:'btn btn-default' %>
-        <% end %>
+      <%= render 'form' %>
     </div><!-- /.container -->
 
 

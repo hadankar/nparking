@@ -5,6 +5,9 @@ class PlacesController < ApplicationController
   def new
     @place = Place.new
   end
+  def edit
+    @place = Place.find(params[:id])
+  end
   def index
     @places = current_user.places
   end
@@ -15,6 +18,15 @@ class PlacesController < ApplicationController
       redirect_to places_path
     else
       render 'new'
+    end
+  end
+  def update
+    @place = Place.find(params[:id])
+
+    if @place.update(place_params)
+      redirect_to places_path
+    else
+      render 'edit'
     end
   end
   def show
@@ -28,7 +40,7 @@ class PlacesController < ApplicationController
   end
   private
     def place_params
-      params.require(:place).permit(:title, :address)
+      params.require(:place).permit(:title, :address, :term, :availableFrom, :availableTo)
     end
 end
 

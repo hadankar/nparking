@@ -4,4 +4,12 @@ class Place < ActiveRecord::Base
   validates :address, presence: true, length: { minimum: 2 }
   geocoded_by :address
   after_validation :geocode
+  attr_reader :status
+  def status
+    if availableFrom and availableTo and availableFrom <= DateTime.now and availableTo >= DateTime.now
+      @status = "Voľné"
+    else
+      @status = "Obsadené"
+    end
+  end
 end

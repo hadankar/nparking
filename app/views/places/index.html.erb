@@ -40,39 +40,25 @@
         <p class="lead">Ak miesto na nejaký čas nepotrebujete, poskytnite ho napr. Vašim susedom pre návštevy.</p>
         <%= link_to 'Pridat parkovacie miesto', new_place_path , class: 'btn btn-primary' %>
       </div>
-      <div class="col-md-12">
-        <table class="table table-hover table-condensed">
-          <thead>
-            <tr>
-              <th>Popis</th>
-              <th>Adresa</th>
-              <th>Pridané</th>
-              <th>Majiteľ</th>
-              <th>Detail</th>
-              <th>Vymazať</th>
-              </tr>
-          </thead>
-          <tbody>
-            <% @places.each do |place| %>
-            <tr>
-              <td><%= place.title %></td>
-              <td><%= place.address %></td>
-              <td><%= place.created_at %></td>
-              <td><%= place.user.email %></td>
-              <td>
-                  <%= link_to place_path(place), class: "btn btn-info" do %>
-                  <i class="glyphicon glyphicon-search"></i><% end %>
-              </td>
-              <td><%= link_to place_path(place), method: :delete,
-                      data: { confirm: 'Si si isty?' }, class: 'btn btn-danger' do %>
-                      <i class="glyphicon glyphicon-trash"></i><% end %>
-              </td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <div class="row">
+        <% @places.each do |place| %>
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <!-- <img src="..." alt="..."> -->
+              <div class="caption">
+                <h3><%= place.title %></h3>
+                <p><%= place.address %></p>
+                <p><%= place.status %></p>
+                <p><%= link_to place_path(place), class: "btn btn-info" do %><i class="glyphicon glyphicon-search"></i><% end %>
+                  <%= link_to edit_place_path(place), class: "btn btn-default" do %><i class="glyphicon glyphicon-pencil"></i><% end %>
+                  <%= link_to place_path(place), method: :delete, data: { confirm: 'Si si isty?' }, class: 'btn btn-danger' do %>
+                          <i class="glyphicon glyphicon-trash"></i><% end %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
       </div>
-
     </div><!-- /.container -->
 
 
