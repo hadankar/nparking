@@ -22,11 +22,11 @@
     </div>
     <div class="form-group">
       <%= f.label :'Voľné od' %>
-      <%= f.datetime_field :availableFrom, class: "form-control", placeholder: "Voľné od" %>
+      <%= f.datetime_select :availableFrom, ampm: false, order: [:day, :month, :year], class: "form-control", placeholder: "Voľné od" %>
     </div>
     <div class="form-group">
       <%= f.label :'Voľné do' %>
-      <%= f.datetime_field :availableTo, class: "form-control", placeholder: "Voľné do" %>
+      <%= f.datetime_select :availableTo, ampm: false, order: [:day, :month, :year], class: "form-control", placeholder: "Voľné do" %>
     </div>
     <%= f.submit class:'btn btn-default' %>
 <% end %>

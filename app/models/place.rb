@@ -6,7 +6,7 @@ class Place < ActiveRecord::Base
   after_validation :geocode
   attr_reader :status
   def status
-    if availableFrom and availableTo and availableFrom <= DateTime.now and availableTo >= DateTime.now
+    if availableFrom and availableTo and availableFrom <= Time.now.in_time_zone("Bratislava") and availableTo >= Time.now.in_time_zone("Bratislava")
       @status = "Voľné"
     else
       @status = "Obsadené"
